@@ -533,3 +533,15 @@ button:disabled {
     font-size: 10px;
   }
 }
+
+/* Added for the assignment's inline error and success-page states. */
+
+.api-note { color: #66748a; font-size: 11px; line-height: 1.8; }
+.error-panel { margin: 0 0 18px; padding: 11px 12px; border: 1px solid #f3c5ca; border-radius: 8px; background: #fff2f3; color: #a92d39; font-size: 12px; line-height: 1.6; }
+.success-shell { justify-content: space-between; }
+.success-card { width: min(620px, 100%); margin: auto; padding: 52px 38px; border: 1px solid #e7ebf1; border-radius: 18px; background: white; box-shadow: 0 18px 55px rgba(28,47,78,.08); text-align: center; }
+.success-icon { display: grid; place-items: center; width: 56px; height: 56px; margin: 0 auto 22px; border-radius: 50%; background: #e7f8ef; color: #218554; font-size: 28px; font-weight: 700; }
+.success-card h1 { margin-bottom: 12px; font-size: clamp(28px, 5vw, 42px); letter-spacing: -.05em; }
+.success-card p:not(.eyebrow) { margin-bottom: 25px; color: #66748a; font-size: 14px; line-height: 1.7; }
+.api-note code { padding: 2px 5px; border-radius: 4px; background: #e9eef6; color: #34435a; }
+@media (max-width: 760px) { .success-card { padding: 38px 22px; } }

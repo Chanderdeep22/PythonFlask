@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submission successful | Flask &amp; MongoDB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <main class="page-shell success-shell">
+      <header class="page-header">
+        <a class="brand" href="{{ url_for('home') }}">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>Flask <span class="brand-divider">+</span> MongoDB</span>
+        </a>
+      </header>
+      <section class="success-card" aria-labelledby="success-title">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <p class="eyebrow">Submission complete</p>
+        <h1 id="success-title">Data submitted successfully</h1>
+        <p>Your form data was saved in MongoDB Atlas.</p>
+        <a class="primary-link" href="{{ url_for('home') }}">← Back to the form</a>
+      </section>
+      <footer class="page-footer"><span>Flask &amp; MongoDB assignment</span><span>Submission status</span></footer>
+    </main>
+  </body>
+</html>

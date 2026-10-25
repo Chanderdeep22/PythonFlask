@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f7fb">
+    <title>Flask &amp; MongoDB | Data Submission</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <a class="brand" href="{{ url_for('home') }}">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>Flask <span class="brand-divider">+</span> MongoDB</span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a class="nav-link" href="{{ url_for('api') }}" target="_blank" rel="noopener">Open JSON API</a>
+          <span class="connection-status"><span class="status-dot"></span> Ready for submission</span>
+        </nav>
+      </header>
+
+      <section class="content-grid" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow">Flask + MongoDB Atlas</p>
+          <h1 id="page-title">Submit your data.<br><span>Keep it simple.</span></h1>
+          <p class="intro-copy">
+            This form sends your name, email and message to the Flask backend,
+            which stores the submission in MongoDB Atlas.
+          </p>
+
+          <dl class="date-card">
+            <div>
+              <dt>Date</dt>
+              <dd>{{ current_date }}</dd>
+            </div>
+            <div>
+              <dt>Local time</dt>
+              <dd>{{ current_time }}</dd>
+            </div>
+          </dl>
+          <p class="api-note">API endpoint: <code>GET /api</code> returns the sample list from <code>backend_data.json</code>.</p>
+        </div>
+
+        <section class="form-card" aria-labelledby="form-title">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">New submission</p>
+              <h2 id="form-title">Your details</h2>
+            </div>
+            <span class="card-icon" aria-hidden="true">↗</span>
+          </div>
+
+          {% if error %}
+          <div class="error-panel" role="alert" aria-live="assertive">{{ error }}</div>
+          {% endif %}
+
+          <form id="submission-form" action="{{ url_for('submit') }}" method="post">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name"
+              placeholder="Jane Smith" value="{{ form_data.get('name', '') }}" maxlength="100" required>
+
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email"
+              placeholder="jane@example.com" value="{{ form_data.get('email', '') }}" maxlength="254" required>
+
+            <label for="message">Message <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="What would you like to share?"
+              maxlength="2000">{{ form_data.get('message', '') }}</textarea>
+
+            <button id="submit-button" type="submit">
+              <span>Submit data</span><span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+            <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+          <p class="privacy-note"><span aria-hidden="true">●</span> No password is requested or stored by this demo.</p>
+        </section>
+      </section>
+
+      <footer class="page-footer">
+        <span>Flask &amp; MongoDB assignment</span>
+        <span>Success redirect · Inline error handling</span>
+      </footer>
+    </main>
+  </body>
+</html>

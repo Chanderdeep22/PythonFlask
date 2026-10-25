@@ -1,0 +1,24 @@
+Flask & MongoDB assignment verification log
+
+PASS  Required project files exist
+PASS  Python syntax: app.py
+PASS  Python syntax: tests/test_app.py
+PASS  backend_data.json parses as a list
+PASS  GET /api route reads backend_data.json
+PASS  POST /submit inserts through save_submission
+PASS  Success route uses required message
+PASS  Frontend redirects after successful insert
+PASS  Form uses non-sensitive fields
+PASS  Mongo URI reads from environment
+PASS  Secrets and bytecode are ignored
+PASS  Dependencies listed
+PASS  GitHub repository URL is included
+
+Summary: 13/13 preflight checks passed.
+Note: these checks do not connect to MongoDB Atlas or replace the Flask unit tests.
+
+Limitations:
+- Flask/PyMongo test-client suite was not executed in the artifact-preparation environment because dependencies could not be installed without package repository access.
+- No live MongoDB Atlas insertion was performed; a valid Atlas MONGO_URI must be configured locally.
+- After local setup, run: python -m unittest discover -s tests -v
+- Start the app with python app.py, then manually verify /api, the successful redirect, and inline error paths.
